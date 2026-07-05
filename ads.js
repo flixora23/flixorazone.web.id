@@ -41,23 +41,7 @@ function loadBanner300x250() {
 }
 
 // ===============================
-// 6. Iklan Banner 160x600
-// ===============================
-function loadBanner160x600() {
-    document.write('<script>atOptions = { "key" : "fdf0e21a1b6d9faff4f57b5ff8461527", "format" : "iframe", "height" : 600, "width" : 160, "params" : {} };<\/script>');
-    document.write('<script src="https://www.highperformanceformat.com/fdf0e21a1b6d9faff4f57b5ff8461527/invoke.js"><\/script>');
-}
-
-// ===============================
-// 7. Iklan Banner 160x300
-// ===============================
-function loadBanner160x300() {
-    document.write('<script>atOptions = { "key" : "2bbfb24161d979f8853f3baafa078142", "format" : "iframe", "height" : 300, "width" : 160, "params" : {} };<\/script>');
-    document.write('<script src="https://www.highperformanceformat.com/2bbfb24161d979f8853f3baafa078142/invoke.js"><\/script>');
-}
-
-// ===============================
-// 8. Iklan Banner 728x90
+// 6. Iklan Banner 728x90
 // ===============================
 function loadBanner728x90() {
     document.write('<script>atOptions = { "key" : "639d18e8908ea3ca1f22f99815640fa5", "format" : "iframe", "height" : 90, "width" : 728, "params" : {} };<\/script>');
@@ -65,7 +49,7 @@ function loadBanner728x90() {
 }
 
 // ===============================
-// 9. Iklan Banner 320x50
+// 7. Iklan Banner 320x50
 // ===============================
 function loadBanner320x50() {
     document.write('<script>atOptions = { "key" : "11ebe5a01f36f92c3d0dfeb5c0db9e5f", "format" : "iframe", "height" : 50, "width" : 320, "params" : {} };<\/script>');
