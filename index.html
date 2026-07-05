@@ -10,12 +10,18 @@
     
     <link rel="icon" href="icon.png" type="image/png">
     <link rel="manifest" href="/manifest.json">
-    <meta name="theme-color" content="#3B82F6">
+    <meta name="theme-color" content="#1F2937">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap');
+
+        /* ANTI-WHITE FLASH: Set background canvas HTML langsung gelap */
+        html {
+            background-color: #1F2937;
+            scroll-behavior: smooth;
+        }
 
         :root {
             --bg-color: #FFFFFF;
@@ -42,8 +48,6 @@
             box-sizing: border-box; 
             -webkit-tap-highlight-color: transparent;
         }
-
-        html { scroll-behavior: smooth; }
 
         body {
             background-color: var(--surface-color);
@@ -191,12 +195,23 @@
         .footer-link { display: block; margin-top: 10px; color: var(--secondary-text-color); text-decoration: none; transition: color 0.2s ease; }
         .footer-link:hover { color: var(--accent-color); }
     </style>
+
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'dark') {
+                document.documentElement.style.backgroundColor = '#1F2937';
+            } else {
+                document.documentElement.style.backgroundColor = '#F9FAFB';
+            }
+        })();
+    </script>
     
-    <!-- PANGGIL FILE ADS.JS -->
-    <script src="../../../../../ads.js"></script>
+    <script src="ads.js"></script>
     <script>loadPopunder();</script>
 </head>
-<body>
+
+<body class="dark-mode">
 
     <div id="adblock-overlay">
         <div class="adblock-modal">
@@ -230,8 +245,8 @@
                         <a href="tvindonesia" class="action-button" aria-label="Nonton TV Indonesia"><i data-lucide="tv"></i></a>                     
                         <a href="https://t.me/+jbwkTntNvak1MzM1" target="_blank" class="action-button" aria-label="Join Telegram"><i data-lucide="send"></i></a>
                         <button class="action-button" id="theme-toggle-btn" aria-label="Toggle Theme">
-                            <i class="icon-sun" data-lucide="sun"></i>
-                            <i class="icon-moon" data-lucide="moon" style="display: none;"></i>
+                            <i class="icon-sun" data-lucide="sun" style="display: none;"></i>
+                            <i class="icon-moon" data-lucide="moon"></i>
                         </button>
                         <button class="action-button" id="search-open-btn" aria-label="Open Search"><i data-lucide="search"></i></button>
                         <button class="action-button mobile-menu-toggle" aria-label="Open Menu"><i data-lucide="menu"></i></button>
@@ -675,7 +690,6 @@
         });
     </script>
 
-    <!-- PANGGIL FUNGSI SOCIAL BAR -->
     <script>loadSocialBar();</script>
 </body>
 </html>
