@@ -17,7 +17,6 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap');
 
-        /* ANTI-WHITE FLASH: Set background canvas HTML langsung gelap */
         html {
             background-color: #1F2937;
             scroll-behavior: smooth;
@@ -59,7 +58,6 @@
         }
         
         input, textarea { user-select: auto; -webkit-user-select: auto; }
-        img { pointer-events: none; }
 
         .container {
             width: 90%;
@@ -72,36 +70,16 @@
         #search-input:focus { border-color: var(--accent-color); box-shadow: 0 0 0 3px var(--accent-glow); }
         .request-btn:focus-visible, .thumbnail-card:focus-visible { box-shadow: 0 0 0 3px var(--accent-glow); }
 
-        /* IKLAN WRAPPER CSS */
         .ad-wrapper {
-            position: relative;
-            background-color: var(--bg-color);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 30px 10px 10px 10px;
-            margin: 25px auto;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            max-width: 100%;
-            overflow-x: auto;
+            position: relative; background-color: var(--bg-color); border: 1px solid var(--border-color);
+            border-radius: 12px; padding: 30px 10px 10px 10px; margin: 25px auto; display: flex;
+            justify-content: center; align-items: center; box-shadow: 0 4px 15px rgba(0,0,0,0.05); max-width: 100%; overflow-x: auto;
         }
         .ad-wrapper::before {
-            content: 'SPONSORED';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background-color: var(--surface-color);
-            border-bottom: 1px solid var(--border-color);
-            color: var(--secondary-text-color);
-            font-size: 0.65rem;
-            font-weight: 800;
-            text-align: center;
-            padding: 6px 0;
-            letter-spacing: 1.5px;
-            border-radius: 12px 12px 0 0;
+            content: 'SPONSORED'; position: absolute; top: 0; left: 0; width: 100%;
+            background-color: var(--surface-color); border-bottom: 1px solid var(--border-color);
+            color: var(--secondary-text-color); font-size: 0.65rem; font-weight: 800;
+            text-align: center; padding: 6px 0; letter-spacing: 1.5px; border-radius: 12px 12px 0 0;
         }
         .ad-wrapper iframe { max-width: 100% !important; }
         .ad-w-728 { max-width: 750px; min-height: 90px; }
@@ -161,13 +139,15 @@
         @media (min-width: 768px) { .content-grid { grid-template-columns: repeat(4, 1fr); gap: 1.5rem; } }
         @media (min-width: 1024px) { .content-grid { grid-template-columns: repeat(6, 1fr); } }
         
-        .thumbnail-card { background-color: var(--bg-color); border-radius: 8px; overflow: hidden; position: relative; box-shadow: 0 4px 10px rgba(0,0,0,0.05); transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.3s ease; display: flex; flex-direction: column; }
-        .thumbnail-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); z-index: 10; cursor: pointer; }
+        /* KARTU THUMBNAIL FULL-AREA CLICKABLE */
+        .thumbnail-card { background-color: var(--bg-color); border-radius: 8px; overflow: hidden; position: relative; box-shadow: 0 4px 10px rgba(0,0,0,0.05); transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.3s ease; display: flex; flex-direction: column; cursor: pointer; }
+        .thumbnail-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); z-index: 10; }
         .thumbnail-card a { text-decoration: none; display: flex; flex-direction: column; height: 100%; }
         .thumbnail-image-container { position: relative; width: 100%; aspect-ratio: 3 / 4; overflow: hidden; background-color: var(--surface-color); }
         .thumbnail-image { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.3s ease; }
         .thumbnail-card:hover .thumbnail-image { transform: scale(1.05); }
-        .ep-badge { position: absolute; top: 8px; right: 8px; background-color: var(--accent-color); color: white; font-size: 0.75rem; font-weight: 800; padding: 4px 8px; border-radius: 4px; z-index: 2; box-shadow: 0 2px 4px rgba(0,0,0,0.3); pointer-events: none; }
+        .ep-badge { position: absolute; top: 8px; right: 8px; background-color: var(--accent-color); color: white; font-size: 0.75rem; font-weight: 800; padding: 4px 8px; border-radius: 4px; z-index: 2; box-shadow: 0 2px 4px rgba(0,0,0,0.3); }
+        .movie-badge { background-color: #E11D48 !important; }
         .card-title-container { padding: 10px 8px; flex-grow: 1; display: flex; align-items: flex-start; justify-content: center; }
         .card-title { font-size: 0.8rem; font-weight: 700; color: var(--primary-text-color); text-align: center; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
         
@@ -199,18 +179,13 @@
     <script>
         (function() {
             const theme = localStorage.getItem('theme') || 'dark';
-            if (theme === 'dark') {
-                document.documentElement.style.backgroundColor = '#1F2937';
-            } else {
-                document.documentElement.style.backgroundColor = '#F9FAFB';
-            }
+            if (theme === 'dark') document.documentElement.style.backgroundColor = '#1F2937';
+            else document.documentElement.style.backgroundColor = '#F9FAFB';
         })();
     </script>
-    
     <script src="ads.js"></script>
     <script>loadPopunder();</script>
 </head>
-
 <body class="dark-mode">
 
     <div id="adblock-overlay">
@@ -245,8 +220,8 @@
                         <a href="tvindonesia" class="action-button" aria-label="Nonton TV Indonesia"><i data-lucide="tv"></i></a>                     
                         <a href="https://t.me/+jbwkTntNvak1MzM1" target="_blank" class="action-button" aria-label="Join Telegram"><i data-lucide="send"></i></a>
                         <button class="action-button" id="theme-toggle-btn" aria-label="Toggle Theme">
-                            <i class="icon-sun" data-lucide="sun" style="display: none;"></i>
-                            <i class="icon-moon" data-lucide="moon"></i>
+                            <i class="icon-sun" data-lucide="sun"></i>
+                            <i class="icon-moon" data-lucide="moon" style="display: none;"></i>
                         </button>
                         <button class="action-button" id="search-open-btn" aria-label="Open Search"><i data-lucide="search"></i></button>
                         <button class="action-button mobile-menu-toggle" aria-label="Open Menu"><i data-lucide="menu"></i></button>
@@ -416,7 +391,7 @@
                                     const fileName = parts[2];
                                     if (fileName === 'thumb.jpg') {
                                         db[category][folderName].hasThumb = true;
-                                    } else if (fileName === 'index.html') {
+                                    } else if (fileName === 'index.html' || fileName === '0.html') {
                                         db[category][folderName].hasIndex = true;
                                     } else if (fileName.endsWith('.html')) {
                                         const epNumStr = fileName.replace('.html', '');
@@ -444,18 +419,17 @@
                             let targetHtml = '';
                             let badgeHtml = '';
 
+                            // PENANGANAN OTOMATIS MOVIE ATAU EPS
                             if (info.maxEp > 0) {
                                 targetHtml = `${info.maxEp}.html`;
                                 badgeHtml = `<div class="ep-badge">EPS ${info.maxEp}</div>`;
-                            } else if (info.hasIndex) {
-                                targetHtml = `index.html`;
-                                badgeHtml = ``; 
                             } else {
                                 targetHtml = `index.html`; 
-                                badgeHtml = ``;
+                                badgeHtml = `<div class="ep-badge movie-badge">MOVIE</div>`;
                             }
 
                             const thumbUrl = `${cat}/${encodeURIComponent(folderName)}/thumb.jpg?t=${cacheBuster}`;
+                            const linkUrl = `${cat}/${encodeURIComponent(folderName)}/${targetHtml}`;
 
                             const card = document.createElement('div');
                             card.className = 'thumbnail-card';
@@ -463,8 +437,11 @@
                             card.dataset.category = cat;
                             card.dataset.maxEp = info.maxEp; 
                             
+                            // KLIK SELURUH KARTU AKAN MEMBUKA KONTEN
+                            card.onclick = () => window.location.href = linkUrl;
+                            
                             card.innerHTML = `
-                                <a href="${cat}/${encodeURIComponent(folderName)}/${targetHtml}">
+                                <a href="${linkUrl}">
                                     <div class="thumbnail-image-container">
                                         <img src="${thumbUrl}" alt="${title}" class="thumbnail-image">
                                         ${badgeHtml}
@@ -689,7 +666,6 @@
             
         });
     </script>
-
     <script>loadSocialBar();</script>
 </body>
 </html>
