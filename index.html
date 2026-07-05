@@ -9,7 +9,7 @@
     <meta name="keywords" content="Flixora, nonton anime, streaming anime, nonton donghua, drakor, dracin, film bioskop, anime sub indo, donghua sub indo, anime terbaru, streaming online, anime ongoing">
 
     
-    <link rel="icon" href="icon.png" type="image/png">
+    <link rel="icon" href="https://flixorazone.web.id/icon.png" type="image/png">
     <link rel="manifest" href="/manifest.json">
     <meta name="theme-color" content="#3B82F6">
     
@@ -85,6 +85,48 @@
         .request-btn:focus-visible, .thumbnail-card:focus-visible {
             box-shadow: 0 0 0 3px var(--accent-glow);
         }
+
+        /* IKLAN WRAPPER CSS */
+        .ad-wrapper {
+            position: relative;
+            background-color: var(--bg-color);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 30px 10px 10px 10px;
+            margin: 25px auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            max-width: 100%;
+            overflow-x: auto;
+        }
+        .ad-wrapper::before {
+            content: 'SPONSORED';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: var(--surface-color);
+            border-bottom: 1px solid var(--border-color);
+            color: var(--secondary-text-color);
+            font-size: 0.65rem;
+            font-weight: 800;
+            text-align: center;
+            padding: 6px 0;
+            letter-spacing: 1.5px;
+            border-radius: 12px 12px 0 0;
+        }
+        .ad-wrapper iframe {
+            max-width: 100% !important;
+        }
+        .ad-w-728 { max-width: 750px; min-height: 90px; }
+        .ad-w-468 { max-width: 490px; min-height: 60px; }
+        .ad-w-300 { max-width: 322px; min-height: 250px; }
+        .ad-w-320 { max-width: 342px; min-height: 50px; }
+        .ad-w-160 { max-width: 182px; min-height: 300px; }
+        .ad-h-600 { min-height: 600px; }
+        .ad-native { width: 100%; max-width: 800px; }
 
         .main-header {
             background-color: var(--bg-color);
@@ -216,7 +258,6 @@
             }
         }
 
-        /* Class generic untuk section kategori agar smooth scroll-nya rapi */
         .category-section, #rekomendasi-section {
              scroll-margin-top: 90px;
         }
@@ -229,8 +270,8 @@
         }
         
          #search-results-container .section-title-wrapper {
-        margin-top: 0px;  
-        margin-bottom: 30px;
+            margin-top: 0px;  
+            margin-bottom: 30px;
          }
         .section-title-wrapper::before,
         .section-title-wrapper::after {
@@ -254,7 +295,6 @@
             max-width: 500px;
         }
         
-        /* GRID LAYOUT: Fix 2 Kolom Kiri Kanan Berjajar ke Bawah */
         .content-grid { 
             display: grid; 
             grid-template-columns: repeat(2, 1fr); 
@@ -274,7 +314,6 @@
             font-style: italic;
         }
 
-        /* STYLE KARTU: Gambar di atas, Judul di bawah */
         .thumbnail-card { 
             background-color: var(--bg-color); 
             border-radius: 8px; 
@@ -490,6 +529,9 @@
            color: var(--accent-color);
         }
     </style>
+    
+    <!-- POPUNDER SCRIPT (1) -->
+    <script src="https://pl30215101.effectivecpmnetwork.com/07/c1/aa/07c1aa78733ec992c7d9bf4efe2c84ae.js"></script>
 </head>
 <body>
 
@@ -554,6 +596,20 @@
                 <p class="hero-description">Jelajahi ribuan judul hiburan terlengkap, dari yang terbaru hingga yang klasik.</p>
             </section>         
             
+            <!-- BANNER 728x90 (2) -->
+            <div class="ad-wrapper ad-w-728">
+                <script>
+                  atOptions = {
+                    'key' : '639d18e8908ea3ca1f22f99815640fa5',
+                    'format' : 'iframe',
+                    'height' : 90,
+                    'width' : 728,
+                    'params' : {}
+                  };
+                </script>
+                <script src="https://www.highperformanceformat.com/639d18e8908ea3ca1f22f99815640fa5/invoke.js"></script>
+            </div>
+
             <section id="rekomendasi-section" style="display: none;">
                 <div class="section-title-wrapper">
                     <h2>REKOMENDASI</h2>
@@ -561,8 +617,28 @@
                 <div class="content-grid" id="rekomendasi-grid"></div>
             </section>
             
+            <!-- BANNER 468x60 (3) -->
+            <div class="ad-wrapper ad-w-468">
+                <script>
+                  atOptions = {
+                    'key' : '61f50d659de6cb86ec853b2a802e4015',
+                    'format' : 'iframe',
+                    'height' : 60,
+                    'width' : 468,
+                    'params' : {}
+                  };
+                </script>
+                <script src="https://www.highperformanceformat.com/61f50d659de6cb86ec853b2a802e4015/invoke.js"></script>
+            </div>
+
             <div id="dynamic-categories-container"></div>
             
+            <!-- NATIVE BANNER (4) -->
+            <div class="ad-wrapper ad-native">
+                <script async="async" data-cfasync="false" src="https://pl30215102.effectivecpmnetwork.com/b05d341d9030a9f560473452b90c9a7e/invoke.js"></script>
+                <div id="container-b05d341d9030a9f560473452b90c9a7e"></div>
+            </div>
+
             <div id="search-results-container" style="display: none;">
                  <div class="section-title-wrapper">
                     <h2>Hasil Pencarian</h2>
@@ -575,8 +651,63 @@
                 </div>
             </div>
 
-            <div id="card-database" style="display: none;"></div>
+            <!-- BANNER 300x250 (5) -->
+            <div class="ad-wrapper ad-w-300">
+                <script>
+                  atOptions = {
+                    'key' : '60f98fafdb98cb00398cbb089b1fc40b',
+                    'format' : 'iframe',
+                    'height' : 250,
+                    'width' : 300,
+                    'params' : {}
+                  };
+                </script>
+                <script src="https://www.highperformanceformat.com/60f98fafdb98cb00398cbb089b1fc40b/invoke.js"></script>
+            </div>
 
+            <!-- GRID IKLAN VERTIKAL (160x600 & 160x300) (6 & 7) -->
+            <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;">
+                <div class="ad-wrapper ad-w-160 ad-h-600">
+                    <script>
+                      atOptions = {
+                        'key' : 'fdf0e21a1b6d9faff4f57b5ff8461527',
+                        'format' : 'iframe',
+                        'height' : 600,
+                        'width' : 160,
+                        'params' : {}
+                      };
+                    </script>
+                    <script src="https://www.highperformanceformat.com/fdf0e21a1b6d9faff4f57b5ff8461527/invoke.js"></script>
+                </div>
+                <div class="ad-wrapper ad-w-160">
+                    <script>
+                      atOptions = {
+                        'key' : '2bbfb24161d979f8853f3baafa078142',
+                        'format' : 'iframe',
+                        'height' : 300,
+                        'width' : 160,
+                        'params' : {}
+                      };
+                    </script>
+                    <script src="https://www.highperformanceformat.com/2bbfb24161d979f8853f3baafa078142/invoke.js"></script>
+                </div>
+            </div>
+
+            <!-- BANNER 320x50 (8) -->
+            <div class="ad-wrapper ad-w-320">
+                <script>
+                  atOptions = {
+                    'key' : '11ebe5a01f36f92c3d0dfeb5c0db9e5f',
+                    'format' : 'iframe',
+                    'height' : 50,
+                    'width' : 320,
+                    'params' : {}
+                  };
+                </script>
+                <script src="https://www.highperformanceformat.com/11ebe5a01f36f92c3d0dfeb5c0db9e5f/invoke.js"></script>
+            </div>
+
+            <div id="card-database" style="display: none;"></div>
         </div>
     </main>
     
@@ -623,7 +754,6 @@
             const sectionRekomendasi = document.getElementById('rekomendasi-section');
             const dynamicContainer = document.getElementById('dynamic-categories-container');
 
-            // --- FUNGSI: Mengacak urutan array (Biar Rekomendasi Wajib Random) ---
             const shuffleArray = (array) => {
                 let currentIndex = array.length, randomIndex;
                 while (currentIndex !== 0) {
@@ -638,14 +768,10 @@
                 return str.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
             };
 
-            // VARIABEL UTAMA DATA
             let allCardsData = [];
             let sectionsState = {}; 
-            
-            // Kategori folder yang ingin di-scan di GitHub (lowercase)
             const allowedCategories = ['anime', 'donghua', 'bioskop', 'drakor', 'dracin'];
 
-            // --- FETCH DATA GITHUB API ---
             const fetchGitHubData = async () => {
                 const apiUrl = 'https://api.github.com/repos/flixora23/flixorazone.web.id/git/trees/main?recursive=1';
                 try {
@@ -655,7 +781,6 @@
                     const data = await response.json();
                     const tree = data.tree;
                     
-                    // Siapkan database sementara sesuai kategori
                     const db = {};
                     allowedCategories.forEach(cat => db[cat] = {});
                     
@@ -693,17 +818,12 @@
                     const allCards = [];
                     const categorizedCards = {};
                     allowedCategories.forEach(cat => categorizedCards[cat] = []);
-                    
-                    // Cache buster biar INSTANT pas update gambar
                     const cacheBuster = new Date().getTime(); 
 
-                    // Render Map Data ke dalam Elemen Kartu
                     for (const cat of allowedCategories) {
                         for (const [folderName, info] of Object.entries(db[cat])) {
                             if (!info.hasThumb && info.maxEp === 0 && !info.hasIndex) continue;
-
                             const title = formatTitle(folderName);
-                            
                             let targetHtml = '';
                             let badgeHtml = '';
 
@@ -718,7 +838,6 @@
                                 badgeHtml = ``;
                             }
 
-                            // Path ROOT RELATIF sesuai request (bukan raw.github) + encode spasi + cachebuster instant
                             const thumbUrl = `${cat}/${encodeURIComponent(folderName)}/thumb.jpg?t=${cacheBuster}`;
 
                             const card = document.createElement('div');
@@ -751,7 +870,6 @@
                 }
             };
 
-            // BUILD UI
             const buildUI = async () => {
                 const fetchedData = await fetchGitHubData();
                 allCardsData = fetchedData.all;
@@ -762,7 +880,6 @@
                     return;
                 }
 
-                // 1. REKOMENDASI (Random dari SEMUA kategori gabungan)
                 sectionRekomendasi.style.display = 'block';
                 const rekomendasiCards = shuffleArray([...allCardsData]).slice(0, 12);
                 sectionsState['rekomendasi'] = {
@@ -773,21 +890,15 @@
                     visibleCount: 12
                 };
 
-                // 2. GENERATE KATEGORI DINAMIS (Anime, Donghua, Bioskop, dll)
                 allowedCategories.forEach(cat => {
                     const cardsInCategory = catData[cat];
-                    
-                    // Kalau folder kosong/belum ada di Github, skip render!
                     if (cardsInCategory && cardsInCategory.length > 0) {
-                        
-                        // Sortir urutan: Episode Tertinggi di Atas
                         cardsInCategory.sort((a, b) => {
                             const epA = parseInt(a.dataset.maxEp || 0);
                             const epB = parseInt(b.dataset.maxEp || 0);
                             return epB - epA; 
                         });
 
-                        // Buat elemen HTML Section Dinamis
                         const sectionEl = document.createElement('section');
                         sectionEl.className = 'category-section';
                         sectionEl.id = `${cat}-section`;
@@ -804,17 +915,15 @@
                         
                         dynamicContainer.appendChild(sectionEl);
 
-                        // Simpan State
                         sectionsState[cat] = {
                             sectionEl: sectionEl,
                             gridEl: sectionEl.querySelector(`#${cat}-grid`),
                             loadMoreBtn: sectionEl.querySelector(`#load-more-${cat}-btn`),
                             loadMoreContainer: sectionEl.querySelector(`#load-more-${cat}-container`),
                             cards: cardsInCategory,
-                            visibleCount: 10 // Tampilkan awal 10
+                            visibleCount: 10
                         };
 
-                        // Pasang Event Listener Load More
                         sectionsState[cat].loadMoreBtn.addEventListener('click', () => {
                             sectionsState[cat].visibleCount += 10;
                             manageSection(cat);
@@ -822,7 +931,6 @@
                     }
                 });
 
-                // Tampilkan semua section yang valid
                 Object.keys(sectionsState).forEach(manageSection);
             };
 
@@ -877,10 +985,8 @@
                 }
             };
 
-            // START!
             buildUI();
 
-            // --- Event Listeners Global ---
             searchInput.addEventListener('input', manageLayout);
 
             yearSpan.textContent = new Date().getFullYear();
@@ -929,7 +1035,6 @@
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             });
             
-            // --- LOGIKA NOTIFIKASI OFFLINE ---
             const offlineNotif = document.getElementById('offline-notification');
             const showOfflineNotification = () => { if (offlineNotif) offlineNotif.classList.add('visible'); };
             const hideOfflineNotification = () => { if (offlineNotif) offlineNotif.classList.remove('visible'); };
@@ -937,7 +1042,6 @@
             window.addEventListener('online', hideOfflineNotification);
             window.addEventListener('offline', showOfflineNotification);
 
-            // Fitur Keamanan
             document.addEventListener('contextmenu', event => event.preventDefault());
 
             let isAdBlockerDetected = false;
@@ -968,5 +1072,8 @@
             
         });
     </script>
+
+    <!-- SOCIAL BAR SCRIPT (9) -->
+    <script src="https://pl30215103.effectivecpmnetwork.com/6a/6f/23/6a6f23d5dcd6739f38137c8b5cfc2534.js"></script>
 </body>
 </html>
